@@ -37,8 +37,24 @@
 				return false;
 			});
 			socket.on('login', function(data) {
+				if(data){
+					console.log('login successful');
+					document.getElementById('result').innerHTML = 'login successful';
+				}
+				else{
+					console.log('login not successful');
+					document.getElementById('result').innerHTML = 'login not successful';
+				}
 			});
 			socket.on('register', function(data) {
+				if(data){
+					console.log();
+					document.getElementById('result').innerHTML = 'You can log in now';
+				}
+				else{
+					console.log('Registeration failed');
+					document.getElementById('result').innerHTML = 'Registeration failed';
+				}
 			});
 		</script>
 	</body>
