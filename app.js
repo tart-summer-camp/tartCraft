@@ -8,6 +8,15 @@ app.get('/', function (req, res) {
 });
 io.sockets.on('connection', function (socket) {
 	socket.on('login', function(data) {
+		var limit = userlist.length;
+		var loginSuccess = false;
+		for(var i = 0 ; i < limit ; i++){
+			if(userlist[i].username == data.username){
+				if(userlist[i].password == data.password){
+					loginSuccess = true;
+				}
+			}
+		}
 	});
 	socket.on('register', function(data) {
 	});
