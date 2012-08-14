@@ -19,6 +19,17 @@ io.sockets.on('connection', function (socket) {
 		}
 	});
 	socket.on('register', function(data) {
+		var limit = userlist.length;
+		var registerSuccess = true;
+		for(var i = 0 ; i < limit ; i++){
+			if(userlist[i].username == data.username){
+				if(userlist[i].password == data.password){
+					registerSuccess = false;
+				}
+			}
+		}
+		if(registerSuccess)
+			userlist.push(data);
 	});
 });
 
