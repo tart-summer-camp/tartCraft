@@ -17,6 +17,7 @@ io.sockets.on('connection', function (socket) {
 				}
 			}
 		}
+		socket.emit('login', loginSuccess);
 	});
 	socket.on('register', function(data) {
 		var limit = userlist.length;
@@ -30,6 +31,7 @@ io.sockets.on('connection', function (socket) {
 		}
 		if(registerSuccess)
 			userlist.push(data);
+		socket.emit('register', registerSuccess);
 	});
 });
 
