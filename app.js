@@ -5,3 +5,8 @@ app.listen(1337);
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
+io.sockets.on('connection', function (socket) {
+});
+
+
+
