@@ -11,7 +11,8 @@
         "url": "https://github.com/tart-summer-camp/tartCraft.git"
     },
     "dependencies": {
-        "express": "2.5.11",
-        "socket.io": "0.9.10"
+        "express": "3.x",
+        "socket.io": "0.9.10",
+        "jade": "0.27.2"
     }
 }
