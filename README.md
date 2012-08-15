@@ -13,8 +13,7 @@ tartCraft is a browser based MMORPG game written with javascript, nodeJS and soc
 ### Running the client
 * Browse to ```yourdomain:1337```.
 
-Current State
--------------
+##Current State
 In current state, you will be seeing login and register forms. You can create a user with the register form, and when you submit the form, you will be given the result of the registeration. The result is either:
   *  Success: Your user has been created and you can log in
   *  Fail: The user already exist or something fishy is going on
@@ -24,13 +23,12 @@ After successful registration, you can use the newly created user to log in. Sim
   *  Fail: No such username or a username with such password exists in the server. Or something fishy is going on.
 
 
-Next Step
----------
+##Next Step
 User should pick character class and type during registration.
 User should get their user data from the server on successful log in.
 Interface should be more beautiful (We can use the beautiful beautiful features of express and jade, or we can make custom).
 Input check during registration.
 
-Bugs
-----
+##Known issues
+There is no known issue at this time.
 Bugs should be reported to [issues](https://github.com/tart-summer-camp/tartCraft/issues) page.
