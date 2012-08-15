@@ -6,6 +6,10 @@
     "scripts": {
         "start": "node app.js"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tart-summer-camp/tartCraft.git"
+    },
     "dependencies": {
         "express": "2.5.11",
         "socket.io": "0.9.10"
