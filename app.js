@@ -2,11 +2,15 @@
 var express = require('express')
     , app = express()
     , http = require('http')
+    , routes = require('./routes')
+    , path = require('path')
     , server = http.createServer(app)
     , io = require('socket.io').listen(server);
 
 app.listen(1337); // port number
+
 var userlist = [{username:"falan",password:"filan"}];
+
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/views/index.jade');
 });
