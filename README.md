@@ -6,15 +6,13 @@ Install
 =======
 0.  Be sure you have nodeJS installed on your computer.
 1.  Set up your server
-	1.  Create a new folder.
-	1.  cd into that directory.
-	1.  run ```npm install express@2```
-	1.  run ```npm install socket.io```
-	1.  run ```express```
-NOTE: You will told you did not enter a directory and will be asked to confirm this action. Type ```yes``` (without quotations) and press enter.
-	1.  run ```npm install```.
-	1.  Place the files in git repository inside your new project folder.
-	1.  run ```node app```.
+	1.  Open command line.
+	2.  Type ```express <directory name>```
+	3.  cd into that directory.
+	4.  run ```npm install socket.io```
+	5.  run ```npm install express@2```
+	6.  Place the files in git repository inside your new project folder.
+	7.  run ```node app```.
 2.  Run the client
 	2.  Load ```localhost:1337``` in your browser, and you are done.
 
@@ -38,4 +36,4 @@ Input check during registration.
 
 Bugs
 ====
-Other then the stuff listed in Next Step, the register and login results are sent to all browsers. This should be user specific, so only the user who is doing the action can catch the results.
+
