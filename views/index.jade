@@ -21,6 +21,15 @@ block content
       p
         label Password:
           input(type='text', name='password', id='regpass')
+      p
+        label Race:
+          select(name='race')
+            option(value='mage') Mage
+            option(value='warrior') Warrior
+            option(value='paladin') Paladin
+            option(value='priest') Priest
+        label Type:
+          select(name='type')
       P
         input(type='submit', value='Register', name='submit')
   p#result
