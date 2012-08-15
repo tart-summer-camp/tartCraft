@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  #loginContainer 
+    form#login(method="post", action="")
+      p
+        label Username:
+          input(type='text', name='username', id='loginuser')
+      p
+        label Password:
+          input(type='text', name='password', id='loginpass')
+      P
+        input(type='submit', value='Login', name='submit')
+  #registerContainer
+    form#register(method="post", action="")
+	  p
+		label Username:
+		  input(type='text', name='username', id='reguser')
+	  p
+		label Password:
+		  input(type='text', name='password', id='regpass')
+	  P
+		input(type='submit', value='Register', name='submit')
