@@ -1,21 +1,17 @@
-tartCraft
-=========
+#tartCraft
 tartCraft is a browser based MMORPG game written with javascript, nodeJS and socket.io
 
-Prerequisites
--------------
-  *  nodeJS
-  *  socket.io
-  *  express (version 2)
+##Install
+1.  Be sure you have node.js and git installed.
+2.  Get both files from the repository.
+3.  In your application directory run ```npm install```
 
-Install
--------
-0.  Be sure you have prerequisites installed on your computer.
-1.  Set up your server
-  1.  Get both files from the repository
-  2.  run ```node app```.
-2.  Run the client
-  1.  Load ```localhost:1337``` in your browser, and you are done.
+### Running the server
+* In "index.html" file, change localhost address with your ip address or domain for enabling access from outside.
+* Run ```node app``` in your application directory.
+
+### Running the client
+* Browse to ```yourdomain:1337```.
 
 Current State
 -------------
@@ -37,4 +33,4 @@ Input check during registration.
 
 Bugs
 ----
-When you register a new player on one computer, you cannot log in with the same player on other computer.
+Bugs should be reported to [issues](https://github.com/tart-summer-camp/tartCraft/issues) page.
