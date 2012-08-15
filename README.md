@@ -7,7 +7,6 @@ tartCraft is a browser based MMORPG game written with javascript, nodeJS and soc
 3.  In your application directory run ```npm install```
 
 ### Running the server
-* In "index.html" file, change localhost address with your ip address or domain for enabling access from outside.
 * Run ```node app``` in your application directory.
 
 ### Running the client
