@@ -1,0 +1,13 @@
+{
+    "name": "tartCraft",
+    "description": "tartCraft is a browser based MMORPG game written with javascript, nodeJS and socket.io",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "express@2.5.11",
+        "socket.io": "express@2.5.11"
+    }
+}
