@@ -5,9 +5,11 @@ var app = require('express').createServer()
 app.listen(1337); // port number
 var userlist = [{username:"falan",password:"filan"}];
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendfile(__dirname + '/views/index.jade');
 });
 
+
+// i love tart.
 /**
  * connection event listener
  * When someone connects, starts to listen events
