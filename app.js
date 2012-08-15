@@ -1,6 +1,9 @@
 
-var app = require('express').createServer()
-  , io = require('socket.io').listen(app);
+var express = require('express')
+    , app = express()
+    , http = require('http')
+    , server = http.createServer(app)
+    , io = require('socket.io').listen(server);
 
 app.listen(1337); // port number
 var userlist = [{username:"falan",password:"filan"}];
