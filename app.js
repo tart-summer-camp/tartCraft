@@ -7,7 +7,9 @@ var userlist = [{username:"falan",password:"filan"}];
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
-
+app.get('/js/Bootstrapper.js', function (req, res) {
+    res.sendfile(__dirname + '/js/Bootstrapper.js');
+});
 /**
  * connection event listener
  * When someone connects, starts to listen events
