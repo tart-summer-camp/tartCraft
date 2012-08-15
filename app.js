@@ -7,12 +7,22 @@ var express = require('express')
     , server = http.createServer(app)
     , io = require('socket.io').listen(server);
 
-app.listen(1337); // port number
-
 var userlist = [{username:"falan",password:"filan"}];
 
-app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/views/index.jade');
+app.get('/', routes.index);
+
+// express configuration
+
+app.configure(function(){
+    app.set('port', process.env.PORT || 1337);
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
+    app.use(express.favicon());
+    app.use(express.logger('dev'));
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(path.join(__dirname, 'public')));
 });
 
 
@@ -63,3 +73,4 @@ io.sockets.on('connection', function (socket) {
 	});
 });
 
+app.listen(app.get('port')); // Start listening.
