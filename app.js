@@ -3,7 +3,32 @@ var app = require('express').createServer()
   , io = require('socket.io').listen(app);
 
 app.listen(1337); // port number
-var userlist = [{username:"falan",password:"filan"}];
+var races = {
+    MAGE: {
+        readableName : 'mage',
+        raceTypes: ['dps']
+    },
+    PRIEST: {
+        readableName : 'priest',
+        raceTypes: ['healer', 'dps']
+    },
+    WARRIOR: {
+        readableName : 'warrior',
+        raceTypes: ['tank', 'dps']
+    },
+    PALADIN: {
+        readableName : 'paladin',
+        raceTypes: ['tank', 'healer', 'dps']
+    }
+};
+var userlist = [
+    {
+        username:"falan",
+        password:"filan",
+        race: '',
+        raceType: ''
+    }
+];
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
