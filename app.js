@@ -6,6 +6,8 @@ app.listen(1337); // port number
 var userlist = [{username:"falan",password:"filan"}];
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
+app.get('/public/js/Bootstrapper.js', function (req, res) {
+  res.sendfile(__dirname + '/public/js/Bootstrapper.js');
 });
 
 /**
