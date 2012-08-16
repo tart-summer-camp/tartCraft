@@ -22,5 +22,9 @@ exports.index = function(req, res){
             raceTypes: ['tank', 'healer', 'dps']
         }
     };
-    res.render('index', { title: "tartCraft", racesObj: races })
+    res.render('index', { title: "tartCraft", racesObj: races });
 };
+
+exports.main = function(req, res){
+     res.render('main', { title: "main"});
+}
