@@ -4,7 +4,7 @@
  * This file contains instant jQuery event binding of UI elements.
  */
 
-tartCraft.bindEvents = function (socket) {
+tartCraft.loginRegisterEvents = function (socket) {
 
     // Login form submit event
     $("#login").submit(function () {

@@ -4,7 +4,7 @@
  * This file socket.on events.
  */
 
-tartCraft.bindSockets = function (socket) {
+tartCraft.loginPageSockets = function (socket) {
     this.userdata={};
     socket.on('login', function (data) {
         if (data.status) {
@@ -36,5 +36,7 @@ tartCraft.bindSockets = function (socket) {
 
     socket.on('mainPageData', function (data) {
         document.getElementById('indexcontainer').innerHTML = data;
+        tartCraft.mainPageEvents(socket);
+        tartCraft.mainPageSockets(socket);
     });
 };
