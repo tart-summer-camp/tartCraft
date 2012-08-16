@@ -1,11 +1,13 @@
 <div class='container'>
     <div class='left'>
         <div class="chatBox">
-            <textarea rows="10" cols="50" readonly>TartCraft Server started.</textarea>
+            <textarea id="dialogBox" rows="10" cols="50" readonly>TartCraft Server started.</textarea>
         </div>
         <div class="messageBox">
-            <input type="text" placeholder="Enter your message to post."/>
-            <input type="submit" style="display: none">
+            <form id="chat">
+                <input type="text" id="chatMessage"/>
+                <input type="submit" value="submit" name="submit" style="display:none">
+            </form>
         </div>
     </div>
     <div class="right">

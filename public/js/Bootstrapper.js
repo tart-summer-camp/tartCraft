@@ -12,7 +12,7 @@ tartCraft.Bootstrapper = function () {
     // Get current host address to set nodejs server location automatically.
     var socket = io.connect('http://' + window.location.host);
 
-    tartCraft.bindEvents(socket);
+    tartCraft.loginRegisterEvents(socket);
 
-    tartCraft.bindSockets(socket);
+    tartCraft.loginPageSockets(socket);
 };
