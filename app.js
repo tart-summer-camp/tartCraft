@@ -151,5 +151,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('getRace', function(data){
         socket.emit('catchRace', races[data.race]);
     });
+
+    socket.on('chatSend', function(data){
+        socket.broadcast.emit('chatReceive', data);
+        socket.emit('chatReceive', data);
+    });
 });
 
