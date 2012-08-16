@@ -47,8 +47,22 @@ io.sockets.on('connection', function (socket) {
 				}
 			}
 		}
-		if(registerSuccess)
-			userlist.push(data);
+
+		if(registerSuccess) {
+            // Trim the data
+            var username = data.username.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+            var password = data.password.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+
+            // Check the data is empty?
+            if(username == "" || password == ""){
+                registerSuccess = false;
+            }else{
+                // Ok, register
+                userlist.push(data);
+            }
+
+        }
+
 		socket.emit('register', registerSuccess);
 	});
 });
