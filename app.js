@@ -3,6 +3,7 @@
 var express = require('express'),
     app = module.exports = express.createServer(),
     routes = require('./routes'),
+    viewRenderer= require('./viewRenderer').viewRenderer,
     io = require('socket.io').listen(app);
 
 
@@ -13,6 +14,7 @@ app.configure(function () {
     app.set('view engine', 'jade');
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.use(express.static(__dirname+'/public/js/viewRenderer.js'));
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
     app.use(express.favicon(__dirname + 'favicon.ico'))
@@ -92,6 +94,9 @@ io.sockets.on('connection', function (socket) {
 
         if (response.status) {
             socket.emit('login', response);
+            socket.emit('mainPageData',viewRenderer("main"));
+            console.log(viewRenderer("main"));
+            //console.log(jscripts.viewRenderer("main"));
         } else {
             response.error = {
                 text:'Wrong username or password.'
@@ -148,7 +153,7 @@ io.sockets.on('connection', function (socket) {
         socket.emit('catchRace', races[data.race]);
     });
     socket.on('loginSuccess', function (data) {
-        app.get('/', routes.main);
+
     });
 });
 
