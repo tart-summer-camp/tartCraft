@@ -4,7 +4,7 @@ div.indexcontainer
   a(href="/main") Click me!
   div#loginContainer
       h2 Login
-      form#login(method="post", action="")
+      form#login
         p
           label Username:
             input(type='text', name='username', id='loginuser')
@@ -15,7 +15,7 @@ div.indexcontainer
           input(type='submit', value='Login', name='submit')
   div#registerContainer
     h2 Register
-    form#register(method="post", action="")
+    form#register
       p
         label Username:
           input(type='text', name='username', id='reguser')
@@ -24,13 +24,14 @@ div.indexcontainer
           input(type='text', name='password', id='regpass')
       p
         label Race:
-          select(name='race')
+          select#regrace(name='race')
             option(value='mage') Mage
             option(value='warrior') Warrior
             option(value='paladin') Paladin
             option(value='priest') Priest
+        br
         label Type:
-          select(name='type')
+          select#regracetype(name='type')
       P
         input(type='submit', value='Register', name='submit')
   p#result
