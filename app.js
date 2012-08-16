@@ -49,21 +49,27 @@ io.sockets.on('connection', function (socket) {
      */
 	socket.on('login', function(data) {
 		var limit = userlist.length;
-		var loginSuccess = false;
         var user;
+        var response = {
+            status: false
+        };
 		for(var i = 0 ; i < limit ; i++){
 			if(userlist[i].username == data.username){
 				if(userlist[i].password == data.password){
-					loginSuccess = true;
+					response.status = true;
                     user = userlist[i];
+                    response.user = user;
 				}
 			}
 		}
 
-        if(loginSuccess) {
-            socket.emit('login', user);
+        if(response.status) {
+            socket.emit('login', response);
         }else{
-            socket.emit('login', loginSuccess);
+            response.error = {
+                text: 'Wrong username or password.'
+            };
+            socket.emit('login', response);
         }
 
 	});
@@ -75,31 +81,40 @@ io.sockets.on('connection', function (socket) {
      */
 	socket.on('register', function(data) {
 		var limit = userlist.length;
-		var registerSuccess = true;
+        var anyConflict = false;
+        var response = {
+            status: true
+        };
 		for(var i = 0 ; i < limit ; i++){
 			if(userlist[i].username == data.username){
-				if(userlist[i].password == data.password){
-					registerSuccess = false;
-				}
+                anyConflict = true;
 			}
 		}
 
-		if(registerSuccess) {
+		if(!anyConflict) {
             // Trim the data
             var username = data.username.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
             var password = data.password.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 
             // Check the data is empty?
             if(username == "" || password == ""){
-                registerSuccess = false;
+                response.status = false;
+                response.error = {
+                    text: 'Username or password cannot be empty.'
+                };
             }else{
                 // Ok, register
                 userlist.push(data);
             }
 
+        }else{
+            response.status = false;
+            response.error = {
+                text: 'This username is registered before.'
+            };
         }
 
-		socket.emit('register', registerSuccess);
+		socket.emit('register', response);
 	});
 });
 
