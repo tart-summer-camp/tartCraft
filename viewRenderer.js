@@ -16,4 +16,3 @@ exports.viewRenderer = function (pagename) {
         return fs.readFileSync('./views/main.html', 'utf8').toString();
     }
 };
-
