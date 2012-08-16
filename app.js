@@ -151,8 +151,5 @@ io.sockets.on('connection', function (socket) {
     socket.on('getRace', function(data){
         socket.emit('catchRace', races[data.race]);
     });
-    socket.on('loginSuccess', function (data) {
-
-    });
 });
 
