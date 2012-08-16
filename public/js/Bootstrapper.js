@@ -1,64 +1,18 @@
 /**
- * Created with JetBrains PhpStorm.
- * User: ozangh
- * Date: 8/16/12
- * Time: 11:45 AM
+ * tartCraft bootstrapper
+ *
+ * Copyright 2012
+ * Tart Summer Camp '12 Campers
  */
-var tartcraft = {};
 
-tartcraft.Bootstrapper = function () {
+var tartCraft = {};
 
-    var socket = io.connect('http://' + window.location.host); //get current host address to set nodejs server location automatically
+tartCraft.Bootstrapper = function () {
 
-    $("#login").submit(function () {
-        socket.emit('login', { username:$("#loginuser").val(), password:$("#loginpass").val() });
-        return false;
-    });
+    // Get current host address to set nodejs server location automatically.
+    var socket = io.connect('http://' + window.location.host);
 
-    $("#register").submit(function () {
-        socket.emit('register', { username:$("#reguser").val(), password:$("#regpass").val(), race:$("#regrace").val(), type:$("#regracetype").val()});
-        return false;
-    });
+    tartCraft.bindEvents(socket);
 
-    $("#regrace").change(function () {
-        var selectedRace = $("#regrace").val();
-        socket.emit('getRace', {race:selectedRace});
-
-    });
-
-    socket.on('catchRace', function (data) {
-        $("#regracetype").find('option').remove().end();
-        for (var typeRace in data.raceTypes) {
-            $("#regracetype").append($('<option></option>').val(data.raceTypes[typeRace]).html(data.raceTypes[typeRace]));
-        }
-    });
-
-    socket.on('login', function (data) {
-        console.log(data);
-        if (data.status) {
-            console.log('login successful');
-            document.getElementById('result').innerHTML = 'login successful';
-            socket.emit('loginSuccess', data);
-        }
-        else {
-            console.log('login not successful');
-            document.getElementById('result').innerHTML = data.error.text;
-        }
-    });
-
-    socket.on('register', function (data) {
-        console.log(data);
-        if (data.status) {
-            console.log();
-            document.getElementById('result').innerHTML = 'You can log in now';
-        }
-        else {
-            console.log('Registeration failed');
-            document.getElementById('result').innerHTML = data.error.text;
-        }
-    });
-    socket.on('mainPageData', function (data) {
-        document.getElementById('indexcontainer').innerHTML = data;
-    });
+    tartCraft.bindSockets(socket);
 };
-
