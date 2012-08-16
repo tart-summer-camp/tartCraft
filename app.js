@@ -1,3 +1,5 @@
+
+
 var express = require('express'),
     app = module.exports = express.createServer(),
     routes = require('./routes'),
@@ -139,7 +141,12 @@ io.sockets.on('connection', function (socket) {
             };
         }
 
-        socket.emit('register', response);
+        socket.emit('register', response);for (race in selectedRace) {
+                console.log(data);
+            }
+    });
+    socket.on('getRace', function(data){
+        socket.emit('catchRace', races[data.race]);
     });
 });
 
