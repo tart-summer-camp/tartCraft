@@ -27,10 +27,10 @@ h1 {
 }
 
 .indexcontainer {
-    width: 200px;
-    border-radius: 10px; 
+    width: 180px;
+    border-radius: 10px;
     background-image: url("/images/transparent.png");
-    
+    padding: 20px
 }
 
 .userlist {
