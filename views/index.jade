@@ -1,7 +1,6 @@
 div#indexcontainer
   h1= title
   p Welcome to #{title}
-  a(href="/main") Click me!
   div#loginContainer
       h2 Login
       form#login
@@ -10,7 +9,7 @@ div#indexcontainer
             input(type='text', name='username', id='loginuser')
         p
           label Password:
-            input(type='text', name='password', id='loginpass')
+            input(type='password', name='password', id='loginpass')
         P
           input(type='submit', value='Login', name='submit')
   div#registerContainer
@@ -21,7 +20,7 @@ div#indexcontainer
           input(type='text', name='username', id='reguser')
       p
         label Password:
-          input(type='text', name='password', id='regpass')
+          input(type='password', name='password', id='regpass')
       p
         label Race:
           select#regrace(name='race')

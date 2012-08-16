@@ -56,7 +56,6 @@ var userlist = [
     }
 ];
 app.get('/', routes.index);
-app.get('/main', routes.main);
 
 //app.get('/', function (req, res) {
 //  res.sendfile(__dirname + '/public/index.html');
