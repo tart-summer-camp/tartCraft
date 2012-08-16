@@ -1,34 +1,36 @@
-h1= title
-p Welcome to #{title}
-#loginContainer
-    h2 Login
-    form#login(method="post", action="")
+div.indexcontainer
+  h1= title
+  p Welcome to #{title}
+  a(href="/main") Click me!
+  div#loginContainer
+      h2 Login
+      form#login(method="post", action="")
+        p
+          label Username:
+            input(type='text', name='username', id='loginuser')
+        p
+          label Password:
+            input(type='text', name='password', id='loginpass')
+        P
+          input(type='submit', value='Login', name='submit')
+  div#registerContainer
+    h2 Register
+    form#register(method="post", action="")
       p
         label Username:
-          input(type='text', name='username', id='loginuser')
+          input(type='text', name='username', id='reguser')
       p
         label Password:
-          input(type='text', name='password', id='loginpass')
+          input(type='text', name='password', id='regpass')
+      p
+        label Race:
+          select(name='race')
+            option(value='mage') Mage
+            option(value='warrior') Warrior
+            option(value='paladin') Paladin
+            option(value='priest') Priest
+        label Type:
+          select(name='type')
       P
-        input(type='submit', value='Login', name='submit')
-#registerContainer
-  h2 Register
-  form#register(method="post", action="")
-    p
-      label Username:
-        input(type='text', name='username', id='reguser')
-    p
-      label Password:
-        input(type='text', name='password', id='regpass')
-    p
-      label Race:
-        select(name='race')
-          option(value='mage') Mage
-          option(value='warrior') Warrior
-          option(value='paladin') Paladin
-          option(value='priest') Priest
-      label Type:
-        select(name='type')
-    P
-      input(type='submit', value='Register', name='submit')
+        input(type='submit', value='Register', name='submit')
 p#result
