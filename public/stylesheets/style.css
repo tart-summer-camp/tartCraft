@@ -9,6 +9,10 @@ a {
   color: #00B7FF;
 }
 
+h1 {
+    text-shadow: 0 0 5px white;
+}
+
 .left {
     float: left;
 }
