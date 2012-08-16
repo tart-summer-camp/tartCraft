@@ -9,6 +9,10 @@ a {
   color: #00B7FF;
 }
 
+h1 {
+    text-shadow: 0 0 5px white;
+}
+
 .left {
     float: left;
 }
@@ -22,11 +26,11 @@ a {
     width: 1100px;
 }
 
-.indexcontainer {
-    width: 200px;
-    border-radius: 10px; 
+#indexcontainer {
+    width: 180px;
+    border-radius: 10px;
     background-image: url("/images/transparent.png");
-    
+    padding: 20px
 }
 
 .userlist {
