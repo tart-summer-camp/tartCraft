@@ -1,9 +1,35 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/wallpaper.jpeg");
+  background-position-x: -300px;
 }
 
 a {
   color: #00B7FF;
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.container {
+    margin:0 auto;
+    width: 1100px;
+}
+
+.indexcontainer {
+    width: 200px;
+    border-radius: 10px; 
+    background-image: url("/transparent.png");
+    
+}
+
+.userlist {
+    width: 272px;
+    margin-bottom: 10px;
+}
