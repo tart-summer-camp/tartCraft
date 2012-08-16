@@ -95,7 +95,7 @@ io.sockets.on('connection', function (socket) {
         if (response.status) {
             socket.emit('login', response);
             socket.emit('mainPageData',viewRenderer("main"));
-            console.log(viewRenderer("main"));
+            //console.log(viewRenderer("main"));
             //console.log(jscripts.viewRenderer("main"));
         } else {
             response.error = {

@@ -5,9 +5,13 @@
  * Time: 5:32 PM
  * To change this template use File | Settings | File Templates.
  */
-exports.viewRenderer= function ($pagename) {
-    console.log('mahmut')
-    if($pagename=='main')
-        return "<p>I am the Main Paaagggeeee!!</p>"
-
+exports.viewRenderer = function (pagename) {
+    //var that=this;
+   content={
+        sitecontent: ""
+    };
+    fs = require('fs');
+    if (pagename == 'main') {
+       return fs.readFileSync('./views/main.html','utf8').toString();
+    }
 };
