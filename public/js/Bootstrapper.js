@@ -18,23 +18,25 @@ $("#register").submit(function() {
     return false;
 });
 socket.on('login', function(data) {
-    if(data){
+    console.log(data);
+    if(data.status){
         console.log('login successful');
         document.getElementById('result').innerHTML = 'login successful';
     }
     else{
         console.log('login not successful');
-        document.getElementById('result').innerHTML = 'login not successful';
+        document.getElementById('result').innerHTML = data.error.text;
     }
 });
 socket.on('register', function(data) {
-    if(data){
+    console.log(data);
+    if(data.status){
         console.log();
         document.getElementById('result').innerHTML = 'You can log in now';
     }
     else{
         console.log('Registeration failed');
-        document.getElementById('result').innerHTML = 'Registeration failed';
+        document.getElementById('result').innerHTML = data.error.text;
     }
 });
 
