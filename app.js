@@ -22,14 +22,22 @@ io.sockets.on('connection', function (socket) {
 	socket.on('login', function(data) {
 		var limit = userlist.length;
 		var loginSuccess = false;
+        var user;
 		for(var i = 0 ; i < limit ; i++){
 			if(userlist[i].username == data.username){
 				if(userlist[i].password == data.password){
 					loginSuccess = true;
+                    user = userlist[i];
 				}
 			}
 		}
-		socket.emit('login', loginSuccess);
+
+        if(loginSuccess) {
+            socket.emit('login', user);
+        }else{
+            socket.emit('login', loginSuccess);
+        }
+
 	});
 
     /**
@@ -47,8 +55,22 @@ io.sockets.on('connection', function (socket) {
 				}
 			}
 		}
-		if(registerSuccess)
-			userlist.push(data);
+
+		if(registerSuccess) {
+            // Trim the data
+            var username = data.username.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+            var password = data.password.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+
+            // Check the data is empty?
+            if(username == "" || password == ""){
+                registerSuccess = false;
+            }else{
+                // Ok, register
+                userlist.push(data);
+            }
+
+        }
+
 		socket.emit('register', registerSuccess);
 	});
 });
