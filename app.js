@@ -4,19 +4,19 @@ var app = require('express').createServer()
 
 app.listen(1337); // port number
 var races = {
-    MAGE: {
+    'mage': {
         readableName : 'mage',
         raceTypes: ['dps']
     },
-    PRIEST: {
+    'priest': {
         readableName : 'priest',
         raceTypes: ['healer', 'dps']
     },
-    WARRIOR: {
+    'warrior': {
         readableName : 'warrior',
         raceTypes: ['tank', 'dps']
     },
-    PALADIN: {
+    'paladin': {
         readableName : 'paladin',
         raceTypes: ['tank', 'healer', 'dps']
     }
