@@ -14,6 +14,7 @@ tartCraft.mainPageEvents = function (socket) {
                 message:$("#chatMessage").val()
             }
         );
+        $("#chatMessage").val("");
         return false;
     });
 };
