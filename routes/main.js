@@ -5,3 +5,6 @@
  * Time: 3:02 PM
  * To change this template use File | Settings | File Templates.
  */
+exports.main = function(req, res){
+res.render('main', { title: "tartCraft", racesObj: races });
+};

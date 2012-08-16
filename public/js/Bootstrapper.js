@@ -38,6 +38,7 @@ socket.on('login', function(data) {
     if(data.status){
         console.log('login successful');
         document.getElementById('result').innerHTML = 'login successful';
+        socket.emit('loginSuccess', data);
     }
     else{
         console.log('login not successful');
