@@ -5,9 +5,10 @@
  */
 
 tartCraft.bindSockets = function (socket) {
-
+    this.userdata={};
     socket.on('login', function (data) {
         if (data.status) {
+            tartCraft.userdata=data.user;
             document.getElementById('result').innerHTML = 'login successful';
             socket.emit('loginSuccess', data);
         }
