@@ -141,9 +141,7 @@ io.sockets.on('connection', function (socket) {
             };
         }
 
-        socket.emit('register', response);for (race in selectedRace) {
-                console.log(data);
-            }
+        socket.emit('register', response);
     });
     socket.on('getRace', function(data){
         socket.emit('catchRace', races[data.race]);
