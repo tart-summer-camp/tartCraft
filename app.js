@@ -55,6 +55,8 @@ var userlist = [
         raceType:''
     }
 ];
+var onlineUsers=[];
+
 app.get('/', routes.index);
 
 //app.get('/', function (req, res) {
@@ -94,6 +96,10 @@ io.sockets.on('connection', function (socket) {
         if (response.status) {
             socket.emit('login', response);
             socket.emit('mainPageData',viewRenderer("main"));
+            onlineUsers.push({user:response.user.username, gameSession:""});
+            socket.emit('onlineUserChanged',onlineUsers);
+            socket.broadcast.emit('onlineUserChanged',onlineUsers);
+
             //console.log(viewRenderer("main"));
             //console.log(jscripts.viewRenderer("main"));
         } else {
