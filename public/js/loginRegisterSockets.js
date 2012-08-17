@@ -10,7 +10,6 @@ tartCraft.loginPageSockets = function (socket) {
         if (data.status) {
             tartCraft.userdata=data.user;
             document.getElementById('result').innerHTML = 'login successful';
-            socket.emit('loginSuccess', data);
         }
         else {
             console.log('login not successful');
@@ -36,6 +35,7 @@ tartCraft.loginPageSockets = function (socket) {
 
     socket.on('mainPageData', function (data) {
         document.getElementsByTagName('body')[0].innerHTML = data;
+        $('#usertInfoText').append(tartCraft.userdata.username+" ("+tartCraft.userdata.race+": "+tartCraft.userdata.type+") ");
         tartCraft.mainPageEvents(socket);
         tartCraft.mainPageSockets(socket);
     });
