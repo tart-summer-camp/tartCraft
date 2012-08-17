@@ -96,7 +96,7 @@ io.sockets.on('connection', function (socket) {
         if (response.status) {
             socket.emit('login', response);
             socket.emit('mainPageData',viewRenderer("main"));
-            onlineUsers.push({user:response.user.username, gameSession:""});
+            onlineUsers.push({user:response.user.username, gameSession:socket.id});
             socket.emit('onlineUserChanged',onlineUsers);
             socket.broadcast.emit('onlineUserChanged',onlineUsers);
 
@@ -161,6 +161,15 @@ io.sockets.on('connection', function (socket) {
     socket.on('chatSend', function(data){
         socket.broadcast.emit('chatReceive', data);
         socket.emit('chatReceive', data);
+    });
+    socket.on('disconnect', function(data){
+        var userCount = onlineUsers.length;
+        for(var i = 0 ; i<userCount-1 ; i++){
+            if(onlineUsers[i].gameSession == socket.id){
+                onlineUsers.splice(i,1);
+            }
+        }
+        socket.broadcast.emit('onlineUserChanged',onlineUsers);
     });
 });
 
