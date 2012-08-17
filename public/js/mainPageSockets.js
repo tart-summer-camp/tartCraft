@@ -30,7 +30,7 @@ tartCraft.mainPageSockets = function (socket) {
     socket.on('duelEnd', function (data) {
         if(data.winner == tartCraft.userdata.username)
             alert("You won the duel!");
-        else{
+        else if(data.loser == tartCraft.userdata.username){
             alert("You lost the duel :c");
             window.location.reload()
         }
