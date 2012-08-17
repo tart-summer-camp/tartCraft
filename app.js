@@ -167,9 +167,11 @@ io.sockets.on('connection', function (socket) {
     });
     socket.on('disconnect', function(data){
         var userCount = onlineUsers.length;
-        for(var i = 0 ; i<userCount-1 ; i++){
+        var found;
+        for(var i = 0 ; i < userCount ; i++){
             if(onlineUsers[i].gameSession == socket.id){
                 onlineUsers.splice(i,1);
+                userCount--;
             }
         }
         socket.broadcast.emit('onlineUserChanged',onlineUsers);
@@ -209,9 +211,11 @@ io.sockets.on('connection', function (socket) {
                 }
             }
         }
-		for(var j = 0 ; j < userCount-1 ; j++){
-            if(userlist[j].username == loser)
+		for(var j = 0 ; j < userCount ; j++){
+            if(userlist[j].username == loser){
 				userlist.splice(j,1);
+                j = userCount + 10;
+            }
         }
     });
 });
