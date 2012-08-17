@@ -196,6 +196,7 @@ io.sockets.on('connection', function (socket) {
                     loser = duels[i].user2;
                     socket.emit('duelEnd', response);
                     socket.broadcast.emit('duelEnd', response);
+					i == duelCount+5;
                 }
                 else{
                     response = {
@@ -204,12 +205,13 @@ io.sockets.on('connection', function (socket) {
                         };
                     socket.emit('duelEnd', response);
                     socket.broadcast.emit('duelEnd', response);
-                }
-                for(var j = 0 ; j < userCount ; j++){
-                    if(userlist[j].username == loser)
-                        userlist.splice(j,1);
+					i == duelCount+5;
                 }
             }
+        }
+		for(var j = 0 ; j < userCount ; j++){
+            if(userlist[j].username == loser)
+				userlist.splice(j,1);
         }
     });
 });
