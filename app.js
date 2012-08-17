@@ -209,7 +209,7 @@ io.sockets.on('connection', function (socket) {
                 }
             }
         }
-		for(var j = 0 ; j < userCount ; j++){
+		for(var j = 0 ; j < userCount-1 ; j++){
             if(userlist[j].username == loser)
 				userlist.splice(j,1);
         }
