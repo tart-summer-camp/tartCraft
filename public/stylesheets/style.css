@@ -24,6 +24,10 @@ h1 {
 .container {
     margin:0 auto;
     width: 1100px;
+    background-image: url("/images/transparent.png");
+    border-radius: 10px;
+    height: 350px;
+    padding: 35px;
 }
 
 #indexcontainer {
@@ -37,3 +41,4 @@ h1 {
     width: 272px;
     margin-bottom: 10px;
 }
+
