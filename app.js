@@ -55,7 +55,10 @@ var userlist = [
         raceType:''
     }
 ];
-var onlineUsers=[];
+
+var onlineUsers = [];
+
+var duels = [];
 
 app.get('/', routes.index);
 
@@ -170,6 +173,44 @@ io.sockets.on('connection', function (socket) {
             }
         }
         socket.broadcast.emit('onlineUserChanged',onlineUsers);
+    });
+
+    socket.on('duelStart', function(data){
+        duels.push(data);
+        socket.broadcast.emit('duelRequest',data);
+        socket.emit('duelRequest',data);
+    });
+
+    socket.on('acceptDuel', function(data){
+        var duelCount = duels.length;
+        var userCount = userlist.length;
+        var response = {};
+        var loser = "";
+        for(var i = 0 ; i < duelCount ; i++){
+            if(duels[i].user2 == data){
+                if(Math.floor(Math.random() * 2) == 1){
+                    response = {
+                        winner: duels[i].user1,
+                        loser: duels[i].user2
+                    };
+                    loser = duels[i].user2;
+                    socket.emit('duelEnd', response);
+                    socket.broadcast.emit('duelEnd', response);
+                }
+                else{
+                    response = {
+                            winner: duels[i].user2,
+                            loser: duels[i].user1
+                        };
+                    socket.emit('duelEnd', response);
+                    socket.broadcast.emit('duelEnd', response);
+                }
+                for(var j = 0 ; j < userCount ; j++){
+                    if(userlist[j].username == loser)
+                        userlist.splice(j,1);
+                }
+            }
+        }
     });
 });
 

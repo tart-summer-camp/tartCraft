@@ -23,4 +23,16 @@ tartCraft.mainPageEvents = function (socket) {
         $("#dialogBox").text("");
     });
 
+    $("#initDuel").click(function() {
+        socket.emit('duelStart',
+            {
+                user1:tartCraft.userdata.username,
+                user2:$("#userList").val()
+            }
+        );
+    });
+    $("#acceptDuel").click(function() {
+        socket.emit('acceptDuel', tartCraft.userdata.username);
+        $("#acceptDuel").hide();
+    });
 };
