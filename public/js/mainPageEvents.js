@@ -17,4 +17,9 @@ tartCraft.mainPageEvents = function (socket) {
         $("#chatMessage").val("");
         return false;
     });
+
+    // Clear button event
+    $("#resetButton").click(function(){
+        $("#dialogBox").text("");
+    });
 };

@@ -35,7 +35,7 @@ tartCraft.loginPageSockets = function (socket) {
     });
 
     socket.on('mainPageData', function (data) {
-        document.getElementById('indexcontainer').innerHTML = data;
+        document.getElementsByTagName('body')[0].innerHTML = data;
         tartCraft.mainPageEvents(socket);
         tartCraft.mainPageSockets(socket);
     });
