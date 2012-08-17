@@ -22,4 +22,5 @@ tartCraft.mainPageEvents = function (socket) {
     $("#resetButton").click(function(){
         $("#dialogBox").text("");
     });
+
 };
