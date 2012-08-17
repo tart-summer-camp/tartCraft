@@ -99,7 +99,7 @@ io.sockets.on('connection', function (socket) {
         if (response.status) {
             socket.emit('login', response);
             socket.emit('mainPageData',viewRenderer("main"));
-            onlineUsers.push({user:response.user.username, gameSession:socket.id});
+            onlineUsers.push({user:response.user.username, userRace:response.user.race, userType:response.user.type, gameSession:socket.id});
             socket.emit('onlineUserChanged',onlineUsers);
             socket.broadcast.emit('onlineUserChanged',onlineUsers);
 

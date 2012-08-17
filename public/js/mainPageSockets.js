@@ -12,9 +12,10 @@ tartCraft.mainPageSockets = function (socket) {
     });
     socket.on('onlineUserChanged',function(data){
         var userCount=data.length;
+        console.log(data[0])
         $("#userList").find('option').remove().end();
         for(var i = 0 ;i<userCount;i++){
-            $('#userList').append($('<option></option>').val(data[i].user).html(data[i].user));
+            $('#userList').append($('<option></option>').val(data[i].user).html(data[i].user+" Race: "+data[i].userRace+ " Type: "+data[i].userType));
         }
     });
     socket.on('duelRequest', function (data) {
